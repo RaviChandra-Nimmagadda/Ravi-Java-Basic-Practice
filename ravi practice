@@ -1,0 +1,124 @@
+package com.ravi;
+
+import java.util.Arrays;
+import java.util.Scanner;
+public class Ravi {
+    public static void creating_array_of_n_numbers(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter size of Array: ");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        int count = 1;
+        for(int i=0; i<n;i++){
+            arr[i] = count; //main POINT
+            count++;
+        }
+        for(int i=0; i<n;i++){
+            System.out.print(arr[i]+ "  ");
+        }
+    }
+
+    public static void creating_2d_array_of_n_numbers(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter ROW size of Array: ");
+        int n = sc.nextInt();
+        System.out.print("enter Column size of Array: ");
+        int m = sc.nextInt();
+        int arr[][] = new int[n][m];
+        int count = 1;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {  //if using length we give j<arr[i].length
+                arr[i][j] = count;
+                count++;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <m; j++) {    //if using length we give j<arr[i].length
+                System.out.print(arr[i][j] + "  ");
+            }
+            System.out.println();//always use Sy.ot.println for 2D array, to get neat output
+        }
+    }
+
+    public static void clonning_array(){
+        int arr[] = {1,2,3};
+        int arr1[] = arr.clone();
+        //System.out.println(Arrays.toString(arr1)); //opt = [1,2,3]
+        for(int i=0;i<arr1.length;i++)
+            System.out.println(arr1[i]);
+    }
+
+    public static void passing_array_to_method(int arr[]){ //array is given as Method Parameter
+        int sum = 0;
+        for(int i =0; i< arr.length;i++)
+            sum = sum + arr[i];
+        System.out.println(sum);
+    }
+
+    public static void average_using_array_entered_by_user(){
+        //Step-1: taking size of Array from User
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+
+        //Step-2: assigning size to array and taking array values from User
+        double arr[] = new double[n]; //declaring array
+        for(int i=0;i<arr.length;i++) {
+            System.out.print("Enter value of No." + (i + 1) + ": "); //(i++) does not work, No.1,No.2,...No.(i+1)
+            arr[i] = sc.nextDouble();
+        }
+
+        //Step-3: adding all values in array
+        double sum = 0; //declaring empty sum
+        for(int i=0;i< arr.length;i++) {
+            sum = sum + arr[i]; // adding all the values in array
+        }
+
+        //Step-4: averaging the sum and total array
+        double avg = sum/ arr.length; //averaging
+        System.out.println("average: "+ avg);
+    }
+
+    public static void average_using_array(){
+        double[] arr = {19, 12.89, 16.5, 200, 13.7};
+        //we need to ru for loop for average of array, so we take empty "avg" variable first
+        double avg = 0;
+        for(int i=0; i<arr.length; i++){
+            avg = avg + arr[i]; //already given double before for loop, so "double avg" not used.
+        }
+        double average = avg / arr.length; //array length gives the size of array for average
+        /* This is used for displaying the formatted output
+         * if you give %.4f then the output would have 4 digits
+         * after decimal point.
+         */
+        System.out.format("The average is: %.3f", average);
+    }
+
+    public static void weight_conversion_from_kgs_to_pounds(){
+        while(true){ //boolean i= true; while(i==true) or while(i) also used for infinite loop.
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter your weight in Kgs: ");
+            float kgs = sc.nextFloat();
+            if(kgs<=0) {
+                System.out.println("Weight cant be Zero"); //sout TAB = shortcut for Print
+            }else{
+                System.out.println("your weight in pounds is "+ kgs*2.20462);
+                break;
+            }}
+    }
+
+    public static void main(String[] args) {
+        //weight_conversion_from_kgs_to_pounds();
+        //average_using_array();
+        //average_using_array_entered_by_user();
+
+
+        //int arr[] = {1,2,3,4,5};     //given array its values, we cannot gie array inside method after giving it as parameter
+        //passing_array_to_method(arr);// passed array with values to method, here "arr[]" not used
+        //clonning_array();
+        //creating_array_of_n_numbers();
+        //creating_2d_array_of_n_numbers();
+
+    }
+}
+
